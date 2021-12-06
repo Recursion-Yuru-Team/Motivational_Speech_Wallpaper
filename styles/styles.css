@@ -1,0 +1,19 @@
+.bg-image {
+  width: 100vw;
+  height: auto;
+  background-size: cover;
+}
+
+.image-frame {
+  position: relative;
+}
+
+.speech {
+  position: absolute;
+  font-family: 'Comfortaa', cursive;
+  font-size: 3rem;
+  padding: 1.5em;
+  width: 80%;
+  letter-spacing: 0.04em;
+  text-shadow: #ffffff 0 0 10px;
+}
