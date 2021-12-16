@@ -10,7 +10,7 @@
   top: 0;
   left: 0;
   opacity: 0;
-  animation: fadein 30s infinite; /* 3画像 × 各5s = 15s */
+  animation: fadein 30s infinite; /* 3画像 × 各10s = 30s */
   z-index: 1;
 }
 

@@ -1,16 +1,4 @@
 function motivationalSpeechWallpaper(wallpaperObject) {
-  const vtTable = {
-    top: 'align-items-start',
-    center: 'align-items-center',
-    bottom: 'align-items-end',
-  };
-
-  const hrTable = {
-    left: 'justify-content-start',
-    center: 'justify-content-center',
-    right: 'justify-content-end',
-  };
-
   const innerFlex = document.createElement('div');
   innerFlex.classList.add('d-flex', 'img_frame');
 
@@ -18,8 +6,8 @@ function motivationalSpeechWallpaper(wallpaperObject) {
   innerFlex.append(imgFrame);
   imgFrame.classList.add(
     'd-flex',
-    vtTable[wallpaperObject.vertical],
-    hrTable[wallpaperObject.horizon]
+    'justify-content-center',
+    'align-items-center'
   );
 
   const bgImage = document.createElement('img');
@@ -40,12 +28,10 @@ function motivationalSpeechWallpaper(wallpaperObject) {
 }
 
 class Wallpaper {
-  constructor(text, color, imgUrl, vertical, horizon, id) {
+  constructor(text, color, imgUrl, id) {
     this.text = text;
     this.color = color;
     this.imgUrl = imgUrl;
-    this.vertical = vertical;
-    this.horizon = horizon;
     this.id = id;
   }
 }
@@ -56,8 +42,6 @@ const wallpaper1 = new Wallpaper(
   'Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away. - Antoine de Saint',
   '2c3e50',
   'https://recursionist.io/img/different-job.png',
-  'center',
-  'center',
   '1'
 );
 
@@ -65,8 +49,6 @@ const wallpaper2 = new Wallpaper(
   'The scientist discovers a new type of material or energy and the engineer discovers a new use for it. - Gordon Lindsay Glegg',
   'ecf0f1',
   'images/laptop-3174729_1280.jpg',
-  'bottom',
-  'left',
   '2'
 );
 
@@ -74,8 +56,6 @@ const wallpaper3 = new Wallpaper(
   'Scientists study the world as it is, engineers create the world that never has been. - Theodore von Karman',
   'ecf0f1',
   'images/robot-2301646_1280.jpg',
-  'top',
-  'right',
   '3'
 );
 
