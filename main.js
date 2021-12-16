@@ -11,66 +11,72 @@ function motivationalSpeechWallpaper(wallpaperObject) {
     right: 'justify-content-end',
   };
 
-  let innerFlex = document.createElement('div');
-  innerFlex.classList.add('d-flex', 'col-12');
+  const innerFlex = document.createElement('div');
+  innerFlex.classList.add('d-flex', 'img_frame');
 
-  let imgFrame = document.createElement('div');
+  const imgFrame = document.createElement('div');
   innerFlex.append(imgFrame);
   imgFrame.classList.add(
     'd-flex',
-    'img-frame',
     vtTable[wallpaperObject.vertical],
     hrTable[wallpaperObject.horizon]
   );
 
-  let bgImage = document.createElement('img');
-  bgImage.classList.add('bg-image');
+  const bgImage = document.createElement('img');
+  bgImage.classList.add('bg_image', `wallpaper${wallpaperObject.id}`);
   bgImage.src = wallpaperObject.imgUrl;
   imgFrame.append(bgImage);
 
-  let speech = document.createElement('h1');
+  const speechContainer = document.createElement('div');
+  speechContainer.classList.add('d-flex');
+  const speech = document.createElement('h1');
   speech.style.color = '#' + wallpaperObject.color;
-  speech.classList.add('d-flex', 'speech');
+  speech.classList.add('speech', `wallpaper${wallpaperObject.id}`);
   speech.innerHTML = wallpaperObject.text;
-  imgFrame.append(speech);
+  speechContainer.append(speech);
+  imgFrame.append(speechContainer);
 
   return innerFlex;
 }
 
 class Wallpaper {
-  constructor(text, color, imgUrl, vertical, horizon) {
+  constructor(text, color, imgUrl, vertical, horizon, id) {
     this.text = text;
     this.color = color;
     this.imgUrl = imgUrl;
     this.vertical = vertical;
     this.horizon = horizon;
+    this.id = id;
   }
 }
 
 const domObj = document.getElementById('target');
 
-let wallpaper1 = new Wallpaper(
+const wallpaper1 = new Wallpaper(
   'Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away. - Antoine de Saint',
   '2c3e50',
   'https://recursionist.io/img/different-job.png',
   'center',
-  'center'
+  'center',
+  '1'
 );
 
-let wallpaper2 = new Wallpaper(
+const wallpaper2 = new Wallpaper(
   'The scientist discovers a new type of material or energy and the engineer discovers a new use for it. - Gordon Lindsay Glegg',
   'ecf0f1',
   'images/laptop-3174729_1280.jpg',
   'bottom',
-  'left'
+  'left',
+  '2'
 );
 
-let wallpaper3 = new Wallpaper(
+const wallpaper3 = new Wallpaper(
   'Scientists study the world as it is, engineers create the world that never has been. - Theodore von Karman',
   'ecf0f1',
   'images/robot-2301646_1280.jpg',
   'top',
-  'right'
+  'right',
+  '3'
 );
 
 domObj.append(motivationalSpeechWallpaper(wallpaper1));

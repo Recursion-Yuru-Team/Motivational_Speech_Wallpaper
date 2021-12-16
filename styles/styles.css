@@ -1,21 +1,35 @@
-.bg-image {
-  width: 100vw;
-  height: auto;
-  background-size: cover;
-}
-
-.image-frame {
+.image_frame {
   position: relative;
 }
 
+.bg_image {
+  width: auto;
+  height: 100vh;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  animation: fadein 30s infinite; /* 3画像 × 各5s = 15s */
+  z-index: 1;
+}
+
+/* テキスト部分 */
+
 .speech {
   position: absolute;
+  display: inline-block;
   font-family: 'Comfortaa', cursive;
   font-size: 3rem;
-  padding: 1.5em;
-  width: 80%;
+  width: 60%;
   letter-spacing: 0.04em;
   text-shadow: #ffffff 0 0 10px;
+  top: 30%;
+  left: 23%;
+  opacity: 0;
+  /* transform: translate(-50%, -50%); */
+  animation: zoomin 30s infinite; /* 3 × 各10s = 30s */
+  z-index: 2;
 }
 
 @media screen and (max-width: 1024px) {
@@ -31,13 +45,77 @@
 }
 
 @media screen and (max-width: 414px) {
+  .bg_image {
+    left: -50vw;
+  }
+
   .speech {
     font-size: 1rem;
+    top: 40%;
   }
 }
 
 @media screen and (max-width: 320px) {
   .speech {
     font-size: 0.7rem;
+  }
+}
+
+/* アニメーション */
+
+.wallpaper1 {
+  animation-delay: 0s;
+}
+
+.wallpaper2 {
+  animation-delay: 10s;
+}
+
+.wallpaper3 {
+  animation-delay: 20s;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes zoomin {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  20% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+  30% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
   }
 }
